@@ -1,8 +1,7 @@
-package com.cafe.user.service;
+package com.cafe.user.domain;
 
 import com.cafe.user.dto.UserInfoDTO;
 
-public interface UserService {
-
+public interface UserCustomRepository {
     public UserInfoDTO getUserInfo() throws Exception;
 }
