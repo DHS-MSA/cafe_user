@@ -23,7 +23,11 @@ public class UserCustomRepositoryImpl implements UserCustomRepository{
         return  jpaQueryFactory.
                 select(Projections.fields(
                         UserInfoDTO.class,
-                        user.userId, user.address ,user.name,user.createdAt))
+                        user.userId,
+                        user.address,
+                        user.name,
+                        user.createdAt,
+                        user.phoneNumber))
                 .from(user).where(user.userId.eq("test")).fetchOne();
     }
 }

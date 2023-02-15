@@ -28,6 +28,9 @@ public class User extends BaseTimeEntity{
     @Column(length = 100, nullable = false)
     private String address;
 
+    @Column(length = 15)
+    private String phoneNumber;
+
     @Column(length = 100)
     private String latitude;
 
