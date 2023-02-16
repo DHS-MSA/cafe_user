@@ -1,5 +1,5 @@
-= REST Docs 문서 만들기 (글의 제목)
-backtony.github.io(부제)
+= REST Docs 문서 만들기 (Cafe-User API)
+backtony.github.io(cafe review system user api docs)
 :doctype: book
 :icons: font
 :source-highlighter: highlightjs // 문서에 표기되는 코드들의 하이라이팅을 highlightjs를 사용
@@ -12,4 +12,4 @@ backtony.github.io(부제)
 
 [[User-단일-조회]]
 === User 단일 조회
-operation::member-get[snippets='http-request,path-parameters,http-response,response-fields']
+operation::get-user-info[snippets='http-request,path-parameters,http-response,response-fields']
