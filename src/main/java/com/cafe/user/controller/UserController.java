@@ -5,10 +5,7 @@ import com.cafe.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -21,7 +18,14 @@ public class UserController {
 
     @GetMapping("/info/{userId}")
     public ResponseEntity<UserInfoDTO> getUserInfo(@PathVariable String userId) throws Exception {
-        UserInfoDTO user = userService.getUserInfo();
+        UserInfoDTO user = userService.getUserInfo(userId);
         return new ResponseEntity<>(user, HttpStatus.OK);
+    }
+
+    @PostMapping("/info/update")
+    public ResponseEntity<UserInfoDTO> updateUserInfo(UserInfoDTO userInfoDTO) throws Exception {
+        UserInfoDTO user = userService.updateUserInfo(userInfoDTO); // TODO 추후 로직 수정 , userId 파라미터
+        return new ResponseEntity<>(user, HttpStatus.OK);
+
     }
 }

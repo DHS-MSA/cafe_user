@@ -1,10 +1,14 @@
 package com.cafe.user.dto;
 
-import lombok.Data;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
-@Data
+@Getter
+@Setter
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
 public class UserInfoDTO {
 
     private String userId;
@@ -12,5 +16,7 @@ public class UserInfoDTO {
     private String address;
     private String phoneNumber;
     private LocalDateTime createdAt;
+
+    private String ColType;
 
 }

@@ -2,6 +2,7 @@ package com.cafe.user.domain;
 
 import com.cafe.user.dto.UserInfoDTO;
 import com.querydsl.core.types.Projections;
+import com.querydsl.core.types.dsl.CaseBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.stereotype.Repository;
 import static com.cafe.user.domain.QUser.user;
@@ -18,7 +19,7 @@ public class UserCustomRepositoryImpl implements UserCustomRepository{
 
 
     @Override
-    public UserInfoDTO getUserInfo() throws Exception {
+    public UserInfoDTO getUserInfo(String userId) throws Exception {
 
         return  jpaQueryFactory.
                 select(Projections.fields(
@@ -28,6 +29,6 @@ public class UserCustomRepositoryImpl implements UserCustomRepository{
                         user.name,
                         user.createdAt,
                         user.phoneNumber))
-                .from(user).where(user.userId.eq("test")).fetchOne();
+                .from(user).where(user.userId.eq(userId)).fetchOne();
     }
 }
