@@ -45,6 +45,10 @@ dependencies {
 	asciidoctorExtensions 'org.springframework.restdocs:spring-restdocs-asciidoctor'
 }
 
+jar{
+	enabled = false
+}
+
 tasks.named('test') {
 	useJUnitPlatform()
 }
