@@ -38,3 +38,4 @@ out/
 
 ## DB setting file
 application-db.yml
+application-nas.yml
