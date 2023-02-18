@@ -50,4 +50,4 @@ jobs:
             export PATH=${{ secrets.SHELL_PATH }}
             docker rm -f cafe_user
             docker pull ${{ secrets.DOCKER_REPO }}/cafe_user
-            docker run -d --name cafe_cafe --restart=unless-stopped -p 8091:8080 ${{ secrets.DOCKER_REPO }}/cafe_user:latest
+            docker run -d --name cafe_user --restart=unless-stopped -p 8091:8080 ${{ secrets.DOCKER_REPO }}/cafe_user:latest
