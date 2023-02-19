@@ -7,7 +7,7 @@ public interface UserService {
 
     public UserInfoDTO getUserInfo(String userId) throws Exception;
 
-    public UserInfoDTO updateUserInfo(UserInfoDTO userInfoDTO) throws Exception;
+    public User updateUserInfo(UserInfoDTO userInfoDTO) throws Exception;
 
     default User userDtoToEntity(UserInfoDTO userInfoDTO){
         User user = User.builder()

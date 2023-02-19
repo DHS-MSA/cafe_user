@@ -17,6 +17,10 @@ public class UserInfoDTO {
     private String phoneNumber;
     private LocalDateTime createdAt;
 
+    /**
+     * 수정된 컬럼이 뭔지 구분하기 위한 필드
+     * N : name / A : address / P : phoneNumber
+     */
     private String ColType;
 
 }

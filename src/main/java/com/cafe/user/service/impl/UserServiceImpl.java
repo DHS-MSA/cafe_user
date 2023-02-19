@@ -21,15 +21,34 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserInfoDTO updateUserInfo(UserInfoDTO userInfoDTO) throws Exception {
+    public User updateUserInfo(UserInfoDTO userInfoDTO) throws Exception {
 
         User user = userRepository.findByUserId(userInfoDTO.getUserId()); //TODO dto를 수정해야할 것 같은데.......
 
         switch (userInfoDTO.getColType()){
-            case "N":
+            case "N": // name
+                user = User
+                        .builder()
+                        .name(userInfoDTO.getName())
+                        .build();
+                break;
 
+            case "A": // address
+                user = User
+                        .builder()
+                        .address(userInfoDTO.getAddress())
+                        .build();
+                break;
+
+            case "P": // phone number'
+                user = User
+                        .builder()
+                        .phoneNumber(user.getPhoneNumber())
+                        .build();
+                break;
 
         }
-        return null;
+        userRepository.save(user);
+        return user;
     }
 }

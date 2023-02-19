@@ -1,5 +1,6 @@
 package com.cafe.user.controller;
 
+import com.cafe.user.domain.User;
 import com.cafe.user.dto.UserInfoDTO;
 import com.cafe.user.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -23,8 +24,8 @@ public class UserController {
     }
 
     @PostMapping("/info/update")
-    public ResponseEntity<UserInfoDTO> updateUserInfo(UserInfoDTO userInfoDTO) throws Exception {
-        UserInfoDTO user = userService.updateUserInfo(userInfoDTO); // TODO 추후 로직 수정 , userId 파라미터
+    public ResponseEntity<User> updateUserInfo(UserInfoDTO userInfoDTO) throws Exception {
+        User user = userService.updateUserInfo(userInfoDTO); // TODO 추후 로직 수정 , userId 파라미터
         return new ResponseEntity<>(user, HttpStatus.OK);
 
     }
