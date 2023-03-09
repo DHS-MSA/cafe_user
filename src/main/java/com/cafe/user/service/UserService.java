@@ -10,13 +10,12 @@ public interface UserService {
     public User updateUserInfo(UserInfoDTO userInfoDTO) throws Exception;
 
     default User userDtoToEntity(UserInfoDTO userInfoDTO){
-        User user = User.builder()
+        return  User.builder()
                 .userId(userInfoDTO.getUserId())
                 .name(userInfoDTO.getName())
                 .address(userInfoDTO.getAddress())
                 .phoneNumber(userInfoDTO.getPhoneNumber())
                 .build();
 
-        return user;
     }
 }

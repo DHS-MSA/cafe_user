@@ -32,6 +32,7 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.bgee.log4jdbc-log4j2:log4jdbc-log4j2-jdbc4.1:1.16'
+	implementation 'com.github.gavlyukovskiy:p6spy-spring-boot-starter:1.5.6' // sql 실행 결과 ?에 바인딩된 파라미터 이쁘게 보이게 해줌
 	implementation 'org.mariadb.jdbc:mariadb-java-client'
 	implementation "com.querydsl:querydsl-jpa:${queryDslVersion}"
 	implementation "com.querydsl:querydsl-apt:${queryDslVersion}"

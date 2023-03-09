@@ -7,9 +7,11 @@ import com.cafe.user.dto.UserInfoDTO;
 import com.cafe.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
 @RequiredArgsConstructor
+@Transactional(readOnly = true)
 public class UserServiceImpl implements UserService {
 
     private final UserCustomRepository userCustomRepository;
@@ -20,11 +22,14 @@ public class UserServiceImpl implements UserService {
         return userCustomRepository.getUserInfo(userId);
     }
 
+    @Transactional
     @Override
     public User updateUserInfo(UserInfoDTO userInfoDTO) throws Exception {
 
         User user = userRepository.findByUserId(userInfoDTO.getUserId()); //TODO dto를 수정해야할 것 같은데.......
+        user.updateUserByColType(userInfoDTO);
 
+/*        System.out.println(userInfoDTO.getColType());
         switch (userInfoDTO.getColType()){
             case "N": // name
                 user = User
@@ -48,7 +53,7 @@ public class UserServiceImpl implements UserService {
                 break;
 
         }
-        userRepository.save(user);
+        userRepository.save(user);*/
         return user;
     }
 }
