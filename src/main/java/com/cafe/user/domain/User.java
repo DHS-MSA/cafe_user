@@ -1,5 +1,6 @@
 package com.cafe.user.domain;
 
+import com.cafe.user.dto.UserInfoDTO;
 import lombok.*;
 
 import javax.persistence.*;
@@ -36,4 +37,21 @@ public class User extends BaseTimeEntity{
 
     @Column(length = 100)
     private String longitude;
+
+
+    public void updateUserByColType(UserInfoDTO userInfoDTO) {
+        switch (userInfoDTO.getColType()){
+            case "N": // name
+                this.name = userInfoDTO.getName();
+                break;
+
+            case "A": // address
+                this.address = userInfoDTO.getAddress();
+                break;
+
+            case "P": // phone number'
+                this.phoneNumber = userInfoDTO.getPhoneNumber();
+                break;
+        }
+    }
 }
