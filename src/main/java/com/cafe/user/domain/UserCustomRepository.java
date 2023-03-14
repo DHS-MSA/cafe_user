@@ -1,7 +1,7 @@
 package com.cafe.user.domain;
 
-import com.cafe.user.dto.UserInfoDTO;
+import com.cafe.user.dto.ResponseUserDTO;
 
 public interface UserCustomRepository {
-    public UserInfoDTO getUserInfo(String userId) throws Exception;
+    public ResponseUserDTO getUserInfo(String userId) throws Exception;
 }

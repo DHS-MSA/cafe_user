@@ -1,8 +1,7 @@
 package com.cafe.user.domain;
 
-import com.cafe.user.dto.UserInfoDTO;
+import com.cafe.user.dto.ResponseUserDTO;
 import com.querydsl.core.types.Projections;
-import com.querydsl.core.types.dsl.CaseBuilder;
 import com.querydsl.jpa.impl.JPAQueryFactory;
 import org.springframework.stereotype.Repository;
 import static com.cafe.user.domain.QUser.user;
@@ -19,11 +18,11 @@ public class UserCustomRepositoryImpl implements UserCustomRepository{
 
 
     @Override
-    public UserInfoDTO getUserInfo(String userId) throws Exception {
+    public ResponseUserDTO getUserInfo(String userId) throws Exception {
 
         return  jpaQueryFactory.
                 select(Projections.fields(
-                        UserInfoDTO.class,
+                        ResponseUserDTO.class,
                         user.userId,
                         user.address,
                         user.name,

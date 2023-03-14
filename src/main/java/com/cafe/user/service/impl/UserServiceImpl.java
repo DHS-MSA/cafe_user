@@ -3,7 +3,8 @@ package com.cafe.user.service.impl;
 import com.cafe.user.domain.User;
 import com.cafe.user.domain.UserCustomRepository;
 import com.cafe.user.domain.UserRepository;
-import com.cafe.user.dto.UserInfoDTO;
+import com.cafe.user.dto.RequestUserDTO;
+import com.cafe.user.dto.ResponseUserDTO;
 import com.cafe.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -18,16 +19,16 @@ public class UserServiceImpl implements UserService {
     private final UserRepository userRepository;
 
     @Override
-    public UserInfoDTO getUserInfo(String userId) throws Exception {
+    public ResponseUserDTO getUserInfo(String userId) throws Exception {
         return userCustomRepository.getUserInfo(userId);
     }
 
     @Transactional
     @Override
-    public User updateUserInfo(UserInfoDTO userInfoDTO) throws Exception {
+    public User updateUserInfo(RequestUserDTO requestUserDTO) throws Exception {
 
-        User user = userRepository.findByUserId(userInfoDTO.getUserId()); //TODO dto를 수정해야할 것 같은데.......
-        user.updateUserByColType(userInfoDTO);
+        User user = userRepository.findByUserId(requestUserDTO.getUserId()); //TODO dto를 수정해야할 것 같은데.......
+        user.updateUserByColType(requestUserDTO);
 
 /*        System.out.println(userInfoDTO.getColType());
         switch (userInfoDTO.getColType()){

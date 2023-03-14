@@ -25,7 +25,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 @SpringBootTest
 @AutoConfigureMockMvc
-@AutoConfigureRestDocs(uriScheme = "https", uriHost = "docs.api.com")
+@AutoConfigureRestDocs(uriScheme = "https", uriHost = "gospel306.synology.me", uriPort = 8091)
 class UserControllerTest {
 
     @Autowired
@@ -34,7 +34,7 @@ class UserControllerTest {
     @Test
     public void get_user_info() throws  Exception {
         mockMvc.perform(
-                get("/user/info/{userId}","1")
+                get("/user/info/{userId}","test")
                         .contentType(MediaType.APPLICATION_JSON)
         )
                 .andExpect(status().isOk())
