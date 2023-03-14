@@ -2,8 +2,6 @@ package com.cafe.user.dto;
 
 import lombok.*;
 
-import java.time.LocalDateTime;
-
 @Getter
 @Setter
 @Builder
@@ -15,11 +13,10 @@ public class RequestUserDTO {
     private String name;
     private String address;
     private String phoneNumber;
-    private LocalDateTime createdAt;
 
     /**
      * 수정된 컬럼이 뭔지 구분하기 위한 필드
-     * N : name / A : address / P : phoneNumber
+     * NAME : name / ADDRESS : address / PHONE : phoneNumber
      */
     private String colType;
 

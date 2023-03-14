@@ -23,9 +23,9 @@ public class UserController {
     }
 
     @PostMapping("/info/update")
-    public ResponseEntity<User> updateUserInfo(@RequestBody RequestUserDTO requestUserDTO) throws Exception {
-        User user = userService.updateUserInfo(requestUserDTO); // TODO 추후 로직 수정 , userId 파라미터
-        return new ResponseEntity<>(user, HttpStatus.OK);
+    public ResponseEntity<ResponseUserDTO> updateUserInfo(@RequestBody RequestUserDTO requestUserDTO) throws Exception {
+        ResponseUserDTO responseUserDTO = userService.updateUserInfo(requestUserDTO);// TODO 추후 로직 수정 , userId 파라미터
+        return new ResponseEntity<>(responseUserDTO, HttpStatus.OK);
 
     }
 }

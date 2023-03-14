@@ -13,3 +13,9 @@ backtony.github.io(cafe review system user api docs)
 [[User-단일-조회]]
 === User 단일 조회
 operation::get-user-info[snippets='http-request,path-parameters,http-response,response-fields']
+
+---
+
+[[User-정보-수정]]
+=== User 정보 수정(수정된 필드값과 수정된 필드 타입 필요)
+operation::update-user-info[snippets='http-request,http-response,request-fields,response-fields']

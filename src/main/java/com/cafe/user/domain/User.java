@@ -42,17 +42,20 @@ public class User extends BaseTimeEntity{
 
     public void updateUserByColType(RequestUserDTO requestUserDTO) {
         switch (requestUserDTO.getColType()){
-            case "N": // name
+            case "NAME": // name
                 this.name = requestUserDTO.getName();
                 break;
 
-            case "A": // address
+            case "ADDRESS": // address
                 this.address = requestUserDTO.getAddress();
                 break;
 
-            case "P": // phone number
+            case "PHONE": // phone number
                 this.phoneNumber = requestUserDTO.getPhoneNumber();
                 break;
         }
     }
+
+
+
 }

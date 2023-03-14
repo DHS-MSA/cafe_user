@@ -8,6 +8,15 @@ public interface UserService {
 
     public ResponseUserDTO getUserInfo(String userId) throws Exception;
 
-    public User updateUserInfo(RequestUserDTO requestUserDTO) throws Exception;
+    public ResponseUserDTO updateUserInfo(RequestUserDTO requestUserDTO) throws Exception;
 
+    default User userDtoToEntity(ResponseUserDTO responseUserDTO){
+        return  User.builder()
+                .userId(responseUserDTO.getUserId())
+                .name(responseUserDTO.getName())
+                .address(responseUserDTO.getAddress())
+                .phoneNumber(responseUserDTO.getPhoneNumber())
+                .build();
+
+    }
 }

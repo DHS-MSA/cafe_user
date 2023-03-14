@@ -25,7 +25,7 @@ public class UserServiceImpl implements UserService {
 
     @Transactional
     @Override
-    public User updateUserInfo(RequestUserDTO requestUserDTO) throws Exception {
+    public ResponseUserDTO updateUserInfo(RequestUserDTO requestUserDTO) throws Exception {
 
         User user = userRepository.findByUserId(requestUserDTO.getUserId()); //TODO dto를 수정해야할 것 같은데.......
         user.updateUserByColType(requestUserDTO);
@@ -55,6 +55,7 @@ public class UserServiceImpl implements UserService {
 
         }
         userRepository.save(user);*/
-        return user;
+        ResponseUserDTO responseUserDTO = new ResponseUserDTO(user);
+        return responseUserDTO;
     }
 }

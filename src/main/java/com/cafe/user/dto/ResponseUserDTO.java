@@ -1,5 +1,6 @@
 package com.cafe.user.dto;
 
+import com.cafe.user.domain.User;
 import lombok.*;
 
 import java.time.LocalDateTime;
@@ -17,4 +18,12 @@ public class ResponseUserDTO {
     private String phoneNumber;
     private LocalDateTime createdAt;
 
+
+    public ResponseUserDTO(User user){
+        userId = user.getUserId();
+        name = user.getName();
+        address = user.getAddress();
+        phoneNumber = user.getPhoneNumber();
+        createdAt = user.getCreatedAt();
+    }
 }
